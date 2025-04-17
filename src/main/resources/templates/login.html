@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css(v=${#dates.createNow().getTime()})}" />
+
+</head>
+<body class="img_back">
+    <h1 class="title_log">GreenWave</h1>
+    <div class="container_login">
+        
+        <div class="container_log">
+            
+            <form class="form_login" th:action="@{/login}" method="post">
+                <div class="username_log ">
+                    <input class="inputs" type="text" name="username" id="username" placeholder="Username" required />
+                </div>
+                <div class="password_log">
+                    <input class="inputs" type="password" name="password" id="password" placeholder="Password" required />
+                </div>
+                <div>
+                    <button class="btn_log" type="submit">Log in</button>
+                </div>
+        
+                
+                <div th:if="${param.error}" style="color: red;">
+                    Credenziali non valide. Riprova.
+                </div>
+                <div th:if="${param.logout}" style="color: green;">
+                    Logout effettuato con successo.
+                </div>
+                <div th:if="${param.registered}" style="color: green;">
+                    Registrazione completata! Puoi accedere.
+                </div>
+            </form>
+            <div class="register_text">
+                <a  th:href="@{/register}">Registrati</a>
+            </div>
+
+        </div>
+            
+            
+        
+    
+       
+
+    </div>
+   
+</body>
+</html>

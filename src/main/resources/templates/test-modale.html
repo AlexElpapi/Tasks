@@ -1,0 +1,6 @@
+<div th:each="giorno : ${tasksPerGiorno}">
+    <h4 th:text="${giorno.key}">Data</h4>
+    <ul>
+        <li th:each="task : ${giorno.value}" th:text="${task.title}"></li>
+    </ul>
+</div>

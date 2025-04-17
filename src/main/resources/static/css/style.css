@@ -1,0 +1,186 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+/* Login */
+.img_back{
+    background: url('/img/background_login.png');
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+.container_login, .container_register
+
+{
+    padding: 20px;
+    width: 40%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container_log{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+}
+.title_log, .title_reg{
+    font-size: 100px;
+    padding: 5px;
+    color: #fff;
+}
+.form_login, .form_register{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(81, 81, 81);
+    border-radius: 25px;
+    padding: 40px;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(22, 22, 22);
+    
+}
+.username_log, .password_log, .username_re, .password_re{
+    padding-bottom: 14px;
+}
+.form_register .inputs{
+    padding:10px;
+}
+.inputs{
+    background: rgb(22, 22, 22);
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 16vw;
+    border: 1px solid rgb(81, 81, 81);
+}
+.btn_log, .btn_register{
+    width: 16vw;
+    padding: 8px;
+    background: black;
+    box-shadow: inset 0 0 0 0  #155724;
+    /* padding: 0 .; */
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    color: whitesmoke;
+    cursor: pointer;
+    /* transition: box-shadow 0.3s ease-in-out; */
+    border-radius: 5px;
+    border: 1px solid rgb(81, 81, 81);
+}
+.btn_log:hover, .btn_register:hover{
+    /* box-shadow: 0 0 15px rgba(204, 206, 208, 0.8); */
+    box-shadow: inset 16vw 0 0 0 #155724;
+}
+
+.register_text, .register_text_two{
+    padding: 10px;
+
+
+}
+.register_text_two .text_accedi{
+    color:#fff;
+    
+}
+.register_text a, .register_text_two a {
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff; 
+    text-decoration: none;
+    transition: background-position 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+
+.register_text a:hover, .register_text_two a:hover{
+    background-image: linear-gradient(to right, #207433, #155724, #0a3818);
+    background-size: 200% 100%;
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.register_text a::after, .register_text_two a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 3px;
+    background: #0a3818;
+    transition: width 0.3s ease-in-out;
+}
+
+.register_text a:hover::after, .register_text_two a:hover::after {
+    width: 100%;
+}
+
+
+/* Urgenza e task completati */
+.urgent {
+    color: red;
+    font-weight: bold;
+}
+.completed {
+    text-decoration: line-through;
+}
+
+/* Stile modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Notifiche */
+.flash-message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.flash-success {
+    background: #d4edda;
+    color: #155724;
+}
+.flash-error {
+    background: #f8d7da;
+    color: #721c24;
+}

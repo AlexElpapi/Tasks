@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestione Utenti - GreenWave</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f0f3f5;
+        }
+
+        form {
+            display: inline;
+        }
+
+        button {
+            padding: 8px 14px;
+            font-size: 0.9em;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .promote {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .promote:hover {
+            background-color: #27ae60;
+        }
+
+        .demote {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .demote:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Gestione Utenti - GreenWave</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Ruolo</th>
+            <th>Azione</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.username}">nome</td>
+            <td th:text="${user.roles}">ruolo</td>
+            <td>
+                <form th:action="@{'/admin/promote/' + ${user.username}}" method="post" th:if="${user.roles == 'USER'}">
+                    <button class="promote" type="submit">🔼 Promuovi</button>
+                </form>
+                <form th:action="@{'/admin/demote/' + ${user.username}}" method="post" th:if="${user.roles == 'MANAGER'}">
+                    <button class="demote" type="submit">🔽 Degrada</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
